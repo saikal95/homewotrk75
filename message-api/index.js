@@ -27,6 +27,7 @@ app.post('/encode', async (req, res, next) => {
 app.post('/decode', async (req, res, next) => {
 
   try{
+
     const message = {
       password: req.body.password,
       message: req.body.message,
