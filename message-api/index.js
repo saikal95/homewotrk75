@@ -15,7 +15,7 @@ app.post('/encode', async (req, res, next) => {
       password: req.body.password,
       message: req.body.message,
     }
-    await res.send(Vigenere.Cipher(message.password).crypt(`<div>${message.message.encode}</div>`));
+    await res.send({encode: Vigenere.Cipher(message.password).crypt(`<div>${message.message}</div>`)});
 
   }catch (e) {
     next(e);
@@ -32,7 +32,7 @@ app.post('/decode', async (req, res, next) => {
       password: req.body.password,
       message: req.body.message,
     }
-    await res.send(Vigenere.Cipher(message.password).crypt(`<div>${message.message.decode}</div>`));
+    await res.send({decode: Vigenere.Cipher(message.password).crypt(`<div>${message.message.decode}</div>`)});
 
   }catch(e) {
     next(e);
